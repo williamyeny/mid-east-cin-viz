@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 100, 200)
+  background(noise(frameCount/100) * 100)
 
   mox = -(windowWidth/2 - mouseX) * ( bm/(windowWidth/2) )
   moy = -(windowHeight/2 - mouseY) * ( bm/(windowHeight/2) )
