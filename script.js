@@ -9,13 +9,12 @@ var bm = 50 // bar margin (from sides)
 
 var mox = 0 // mouse offset x
 var moy = 0 // mouse offset y
-var mc = 10 // mouse offset constant
 
 function draw() {
   background(0, 100, 200)
 
-  mox = -(windowWidth/2 - mouseX) / mc
-  moy = -(windowHeight/2 - mouseY) / mc
+  mox = -(windowWidth/2 - mouseX) * ( bm/(windowWidth/2) )
+  moy = -(windowHeight/2 - mouseY) * ( bm/(windowHeight/2) )
 
   // draw bars
   fill(255)
