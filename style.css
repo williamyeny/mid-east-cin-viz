@@ -8,3 +8,27 @@
 html {
   overflow: hidden;
 }
+
+.center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rh {
+  width:50%;
+  right: 0px;
+}
+
+h1 {
+  font-size: 80px;
+  color:white;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 30px;
+  color:white;
+  text-transform: uppercase;
+  /* font-style: italic; */
+}
