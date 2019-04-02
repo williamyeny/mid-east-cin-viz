@@ -30,5 +30,21 @@ h2 {
   font-size: 30px;
   color:white;
   text-transform: uppercase;
+  margin-bottom: 20px;
   /* font-style: italic; */
+}
+
+.start-button {
+  padding: 7px 15px;
+  border: 2px solid white;
+  background: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.start-button:hover {
+  color:black;
+  background-color: white;
 }
