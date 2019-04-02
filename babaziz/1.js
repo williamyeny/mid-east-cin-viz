@@ -10,7 +10,11 @@ function setup() {
   lightblue = color(195,207,221)
 
   setInterval(function() {
-    sands.push(new Sand(-5, Math.random() * height))
+    sands.push({
+      seed: Math.random() * 100,
+      x: -5,
+      y: Math.random() * height
+    })
   }, 200)
 }
 
@@ -22,23 +26,19 @@ function draw() {
     stroke(c);
     line(0, i, width, i);
   }
-  stroke(color(198,168,142))
+  stroke(color(168,138,112))
   strokeWeight(5)
   sands.forEach(function(sand) {
     point(sand.x, sand.y)
     sand.x += noise(sand.x + sand.seed) * 10
-    sand.y += noise(sand.y + sand.seed) * 10
+    sand.y += noise(sand.seed)
+
+    if (sand.x > width) {
+      delete sand
+    }
   })
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-}
-
-class Sand {
-  Sand(x, y) {
-    this.seed = Math.random() * 100
-    this.x = x
-    this.y = y
-  }
 }

@@ -20,6 +20,16 @@ html {
   right: 0px;
 }
 
+.wh {
+  width: 25%;
+  right: 25%;
+}
+
+.center p {
+  padding-right: 20px;
+  color:white;
+}
+
 h1 {
   font-size: 80px;
   color:white;
@@ -30,7 +40,7 @@ h2 {
   font-size: 30px;
   color:white;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   /* font-style: italic; */
 }
 
@@ -43,6 +53,8 @@ h2 {
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+  position: relative;
+  top:30px;
 }
 .start-button:hover {
   color:black;
