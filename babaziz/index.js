@@ -1,5 +1,3 @@
-var circleTimer = 0
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke()
