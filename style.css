@@ -55,8 +55,10 @@ h2 {
   cursor: pointer;
   position: relative;
   top:30px;
+  transition-duration: 0.2s;
 }
 .start-button:hover {
-  color:black;
-  background-color: white;
+  top: 26px;
+
+  transition-duration: 0.2s;
 }
