@@ -37,7 +37,7 @@ h2 {
 .start-button {
   padding: 7px 15px;
   border: 2px solid white;
-  background: none;
+  text-decoration: none;
   border-radius: 2px;
   color: white;
   font-size: 20px;
