@@ -14,3 +14,11 @@ https://www.spiritualityandpractice.com/films/features/view/17822
 
 ## Subtitles: on the foreignness of film 
 
+text on the bottom
+
+## Ashik Kerib
+
+Pomegranate?
+
+https://www.latimes.com/archives/la-xpm-1989-07-14-ca-3863-story.html
+
