@@ -2,6 +2,7 @@
   font-family: 'Roboto', sans-serif;
   margin: 0px;
   padding: 0px;
+  color:white;
 }
 
 /* remove scrollbar */
@@ -13,6 +14,17 @@ html {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.bottom-y {
+  bottom: 80px; 
 }
 
 .rh {
@@ -27,7 +39,6 @@ html {
 
 .center-y p {
   padding-right: 20px;
-  color:white;
 }
 
 h1 {
