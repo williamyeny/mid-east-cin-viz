@@ -5,6 +5,7 @@ var h = 1500
 var colorRand = 0
 var flying = 0
 var terrain = []
+var z = 0
 
 // to prevent reassignment in computationally-heavy for loops
 var y, x
@@ -31,20 +32,22 @@ function setup() {
 }
 
 function draw() {
-  translate(0, 50);
-  rotateX(PI/3);
-  translate(-w/2, -h/2);
+  translate(0, 50)
+  rotateX(PI/3)
+  z += (map(mouseX, 0, width, -PI/5, PI/5) - z)/10
+  rotateZ(z)
+  translate(-w/2, -h/2)
 
   flying -= 0.02;
   for (y = 0; y < rows; y++) {
     for (x = 0; x < cols; x++) {
-      terrain[x][y] = map(noise(x * 0.3, y * 0.3 + flying), 0, 1, -100, 100);
+      terrain[x][y] = map(noise(x * 0.3, y * 0.3 + flying), 0, 1, -100, 100)
     }
   }
 
   background(213,227,229);
   colorRand = noise(flying)
-  fill(colorRand*40 + 146, colorRand*40 + 112, colorRand* 40 + 86);
+  fill(colorRand*40 + 186, colorRand*40 + 152, colorRand*40 + 126);
   
   for (y = 0; y < rows-1; y++) {
     beginShape(TRIANGLE_STRIP);
