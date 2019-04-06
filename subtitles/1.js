@@ -1,5 +1,5 @@
 var subs = document.getElementsByTagName("p")
-var subIndex = 0
+var subIndex = 1
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke()
