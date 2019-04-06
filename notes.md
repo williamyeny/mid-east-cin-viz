@@ -20,6 +20,10 @@ Night (moon), story
 
 text on the bottom
 
+pg 30
+
+"Subtitles offer a way into worlds outside of ourselves. Subtitles embed us."
+
 ## Ashik Kerib
 
 Pomegranate?

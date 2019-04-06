@@ -18,6 +18,7 @@ html {
 
 .center-x {
   position: absolute;
+  width:100%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -100,4 +101,25 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.subtitle {
+  display:none;
+  color:yellow;
+  font-size: 30px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.subtitle:first-child {
+  display:block;
+}
+
+.subtitle-wrapper{
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+}
+
+.subtitle-wrapper a {
+  position: static;
+  margin: 0;
 }
