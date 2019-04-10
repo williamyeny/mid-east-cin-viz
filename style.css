@@ -24,6 +24,11 @@ html {
   text-align: center;
 }
 
+.left-x {
+  position: absolute;
+  left: 30px;
+}
+
 .bottom-y {
   bottom: 80px; 
 }
