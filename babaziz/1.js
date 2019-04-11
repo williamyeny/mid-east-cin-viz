@@ -23,7 +23,7 @@ function draw() {
   //   stroke(c);
   //   line(0, i, width, i);
   // }
-  background(darkblue)
+  background(221,196,158, map(noise(frameCount/2), 0, 1, 100, 255))
 
   // sands
   // stroke(color(168,138,112))
@@ -31,6 +31,9 @@ function draw() {
   for (let s of sands) {
     s.update(frameCount/60); // update snowflake position
     s.display(); // draw snowflake
+    if (s.posY > width) {
+      delete s
+    }
   }
 
   // smooth transition to mouseY
@@ -47,7 +50,7 @@ function Sand() {
   this.posX = random(-50, 0);
   this.initialangle = random(0, 2 * PI);
   this.size = random(3, 7);
-  this.color = lerpColor(color(187, 167, 142), color(236, 219, 178), random())
+  this.color = lerpColor(color(158,123,88), color(221,196,158), random())
 
   this.radius = sqrt(random(pow(height / 2, 2)));
 
@@ -55,15 +58,10 @@ function Sand() {
     // x position follows a circle
     let w = 0.6; // angular speed
     let angle = w * time + this.initialangle;
-    this.posY = height / 2 + this.radius * cos(angle);
+    this.posY = height / 2 + this.radius * cos(angle) + backgroundY;
 
     // different size snowflakes fall at slightly different y speeds
     this.posX += pow(this.size, 0.5) + 5;
-
-    // delete sand if past end of screen
-    if (this.posX > width) {
-      delete this
-    }
   };
 
   this.display = function() {
