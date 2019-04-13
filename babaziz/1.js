@@ -32,7 +32,7 @@ function draw() {
     s.update(frameCount/60); // update snowflake position
     s.display(); // draw snowflake
     if (s.posY > width) {
-      delete s
+      sands.splice(sands.indexOf(s), 1)
     }
   }
 
@@ -58,7 +58,7 @@ function Sand() {
     // x position follows a circle
     let w = 0.6; // angular speed
     let angle = w * time + this.initialangle;
-    this.posY = height / 2 + this.radius * cos(angle) + backgroundY;
+    this.posY = height / 2 + this.radius * cos(angle) + map(backgroundY, 0, height, -height/5, height/5);
 
     // different size snowflakes fall at slightly different y speeds
     this.posX += pow(this.size, 0.5) + 5;
