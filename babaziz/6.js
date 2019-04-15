@@ -25,7 +25,7 @@ function mouseMoved() {
     speed: 0,
     gravity: r,
     alpha: 255,
-    size: 60*r
+    size: 60/r
   })
 }
 
