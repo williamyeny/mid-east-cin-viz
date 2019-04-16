@@ -1,8 +1,10 @@
 var balls = []
+var barrierX
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
   // frameRate(5)
+  barrierX = width/2
 }
 
 setInterval(function() {
@@ -17,23 +19,25 @@ setInterval(function() {
 }, 2000)
 
 function draw() {
+
+  barrierX += (mouseX - barrierX)/10
+
   noStroke()
   fill(255)
-  rect(0, 0, mouseX, height)
+  rect(0, 0, barrierX, height)
   fill(0, 50)
-  rect(mouseX, 0, width, height)
+  rect(barrierX, 0, width, height)
 
-  // strokeWeight(1)
   stroke(0)
   balls.forEach(function(b) {
     if (b.x > width + 10) {
       balls.splice(balls.indexOf(b), 1)
     }
-    if (b.x > mouseX && b.mode == 0) {
-      b.offsetX = mouseX
+    if (b.x > barrierX && b.mode == 0) {
+      b.offsetX = barrierX
       b.offsetY = b.y
       b.mode = 1
-    } else if (b.x < mouseX && b.mode == 1) {
+    } else if (b.x < barrierX && b.mode == 1) {
       b.offsetX = 0
       b.offsetY = 0
       b.mode = 0
