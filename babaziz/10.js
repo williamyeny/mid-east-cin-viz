@@ -42,11 +42,12 @@ function draw() {
     if (b.offsetX > 0) {
       b.y = 500*noise(b.x/100) - 500*noise(b.offsetX/100) + b.offsetY
       b.x += 2
+      fill(255*noise(frameCount/50 + b.offsetY), 255*noise(frameCount/50 + b.offsetY + 10), 255*noise(frameCount/50 + b.offsetY + 20))
     } else {
       b.x += 10
+      fill(255)
     }
-
-    fill(255)
+    
     ellipse(b.x, b.y, 20)
 
   })
