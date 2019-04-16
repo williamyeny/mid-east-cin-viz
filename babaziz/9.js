@@ -51,8 +51,7 @@ function draw() {
     curves[i].y += 3
   }
 
-  delay += (map(mouseY, 0, height, 3000, 300) - delay)/20
-  console.log(delay)
+  delay = map(mouseY, 0, height, 3000, 300)
 } 
 
 function windowResized() {
