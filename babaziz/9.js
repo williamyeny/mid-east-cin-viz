@@ -1,5 +1,6 @@
 var curves = []
 var amplitude = 200
+var delay = 1000
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
@@ -9,12 +10,17 @@ function setup() {
   })
   noFill()
 
-  setInterval(function() {
-    curves.push({
-      y: -amplitude,
-      seed: frameCount // guarantee each curve is unique
-    })
-  }, 1000)
+  // since we have a dynamic speed, we cannot use setInterval()
+  function loop() {
+    setTimeout(function() {
+      curves.push({
+        y: -amplitude,
+        seed: frameCount // guarantee each curve is unique
+      })
+      loop()
+    }, delay)
+  }
+  loop()
 }
 
 function draw() {
@@ -44,6 +50,9 @@ function draw() {
 
     curves[i].y += 3
   }
+
+  delay += (map(mouseY, 0, height, 3000, 300) - delay)/20
+  console.log(delay)
 } 
 
 function windowResized() {
