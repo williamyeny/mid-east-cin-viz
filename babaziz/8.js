@@ -1,14 +1,16 @@
 var size = 0
-var div
+var div = 20
+var seed
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(30)
   background(0)
+  seed = 0
 }
 
 function mouseMoved() {
-  div = 10
+  div = 5
 }
 
 function draw() {
@@ -17,7 +19,7 @@ function draw() {
   stroke(255)
   noFill()
   beginShape()
-  for (a = 0; a < TWO_PI; a+=0.1) {
+  for (a = seed; a < TWO_PI + seed; a+=0.1) {
     var xoff = map(cos(a), -1, 1, 0, 5)
     var yoff = map(sin(a), -1, 1, 0, 5)
     
@@ -28,6 +30,7 @@ function draw() {
   size += 10
   if (size > width) {
     size = 0
+    seed = frameCount
   }
 
   div += (20 - div)/20

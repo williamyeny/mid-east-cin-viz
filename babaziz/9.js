@@ -1,48 +1,51 @@
-var cells = []
-var cellsTemp = []
-var cellWidth
+var curves = []
+var amplitude = 200
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
-  cellWidth = 2
-  for (y = 0; y < height; y++) {
-    cells.push([])
-    cellsTemp.push([])
-    for (x = 0; x < width; x++) {
-      cells[y].push(0)
-      cellsTemp[y].push(0)
-    }
-  }
+  curves.push({
+    y: -amplitude,
+    seed: 0
+  })
+  noFill()
+
+  setInterval(function() {
+    curves.push({
+      y: -amplitude,
+      seed: frameCount // guarantee each curve is unique
+    })
+  }, 1000)
 }
 
 function draw() {
-  background(255)
-  fill(158,123,88)
-  for (y = 0; y < height / cellWidth; y++) {
-    for (x = 0; x < width / cellWidth; x++) {
-      if (cells[y][x] == 1) {
-        rect(x*cellWidth, y*cellWidth, cellWidth, cellWidth)
-      }
-      if ((y > 0 && cells[y-1][x] == 1) || (y < height && cells[y+1][x] == 1 && cells[y][x] == 1)) {
-        cellsTemp[y][x] = 1
-      } else {
-        cellsTemp[y][x] = 0
-      }
+  background(22,25,53, 10)
+  stroke(158,123,88, 200)
+  strokeWeight(2)
+  for (i = 0; i < curves.length; i++) {
+    if (curves[i].y > height*2) {
+      curves.splice(i, 1)
+      continue
     }
-  }
 
-  for (y = 0; y < height; y++) {
-    for (x = 0; x < width; x++) {
-      cells[y][x] = cellsTemp[y][x]
-    }
+    // amplitude: height of the curve
+    // frameCount/20: on each new frame, make a new curve
+    // seed: make sure each generated curve is different
+    // y: position of curve
+    bezier(
+      0, // x1
+      amplitude * noise(frameCount/50 + curves[i].seed + 10) + curves[i].y, // y1
+      width/2, // x2
+      amplitude * noise(frameCount/50 + curves[i].seed + 30) + curves[i].y, // y2
+      width*3/4,
+      amplitude * noise(frameCount/50 + curves[i].seed + 50) + curves[i].y,
+      width,
+      amplitude * noise(frameCount/50 + curves[i].seed + 70) + curves[i].y
+    )
+
+    curves[i].y += 3
   }
 } 
 
-function mouseMoved() {
-  cells[int(mouseY/cellWidth)][int(mouseX/cellWidth)] = 1
-}
-
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  diameter = max(width, height)
 }
