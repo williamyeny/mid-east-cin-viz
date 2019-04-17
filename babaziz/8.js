@@ -33,7 +33,7 @@ function draw() {
     seed = frameCount
   }
 
-  div += (20 - div)/20
+  div += (20 - div)/5
 } 
 
 function windowResized() {
